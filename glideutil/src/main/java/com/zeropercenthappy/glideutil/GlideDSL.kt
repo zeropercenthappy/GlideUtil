@@ -22,7 +22,7 @@ fun loadImage(init: GlideWrapper.() -> Unit) {
             return
         }
         // glideRequest
-        val glideRequest = GlideApp.with(imageView!!).load(uri)
+        val glideRequest = GlideApp.with(requireNotNull(imageView)).load(uri)
         // placeHolder
         if (placeHolder is Int) {
             glideRequest.placeholder(placeHolder as Int)
@@ -40,6 +40,6 @@ fun loadImage(init: GlideWrapper.() -> Unit) {
             glideRequest.circleCrop()
         }
         // load
-        glideRequest.into(imageView!!)
+        glideRequest.into(requireNotNull(imageView))
     }
 }
