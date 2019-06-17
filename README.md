@@ -17,7 +17,7 @@ allprojects {
 
 ```
 dependencies {
-        implementation 'com.github.zeropercenthappy:GlideUtil:1.0.0'
+        implementation 'com.github.zeropercenthappy:GlideUtil:1.0.1'
 }
 ```
 
