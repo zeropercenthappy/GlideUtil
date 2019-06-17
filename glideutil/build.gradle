@@ -9,7 +9,7 @@ android {
     compileSdkVersion 27
 
     defaultConfig {
-        minSdkVersion 19
+        minSdkVersion 14
         targetSdkVersion 27
         versionCode 100
         versionName "1.0.0"
@@ -30,15 +30,11 @@ android {
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    api "com.android.support:appcompat-v7:$android_support_version"
-
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
-    api "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0"
-    api "org.jetbrains.anko:anko:$anko_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     api "com.github.bumptech.glide:glide:$glide_version"
     api "com.github.bumptech.glide:annotations:$glide_version"
