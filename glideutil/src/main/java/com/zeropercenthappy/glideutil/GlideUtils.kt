@@ -1,86 +1,29 @@
 package com.zeropercenthappy.glideutil
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.drawable.Drawable
 import android.widget.ImageView
-import java.io.File
 import kotlin.concurrent.thread
 
 object GlideUtils {
 
+    @SuppressLint("CheckResult")
+    @JvmOverloads
     @JvmStatic
-    fun loadImage(context: Context, url: String, imageView: ImageView) {
-        GlideApp.with(context)
-            .load(url)
-            .into(imageView)
-    }
-
-    @JvmStatic
-    fun loadImage(context: Context, url: String, imageView: ImageView, placeholder: Int) {
-        GlideApp.with(context)
-            .load(url)
-            .placeholder(placeholder)
-            .error(placeholder)
-            .into(imageView)
-    }
-
-    @JvmStatic
-    fun loadImage(context: Context, url: String, imageView: ImageView, placeholder: Drawable) {
-        GlideApp.with(context)
-            .load(url)
-            .placeholder(placeholder)
-            .error(placeholder)
-            .into(imageView)
-    }
-
-    @JvmStatic
-    fun loadImage(context: Context, file: File, imageView: ImageView) {
-        GlideApp.with(context)
-            .load(file)
-            .into(imageView)
-    }
-
-    @JvmStatic
-    fun loadImage(context: Context, file: File, imageView: ImageView, placeholder: Int) {
-        GlideApp.with(context)
-            .load(file)
-            .placeholder(placeholder)
-            .error(placeholder)
-            .into(imageView)
-    }
-
-    @JvmStatic
-    fun loadImage(context: Context, file: File, imageView: ImageView, placeholder: Drawable) {
-        GlideApp.with(context)
-            .load(file)
-            .placeholder(placeholder)
-            .error(placeholder)
-            .into(imageView)
-    }
-
-    @JvmStatic
-    fun loadImage(context: Context, res: Int, imageView: ImageView) {
-        GlideApp.with(context)
-            .load(res)
-            .into(imageView)
-    }
-
-    @JvmStatic
-    fun loadImage(context: Context, res: Int, imageView: ImageView, placeholder: Int) {
-        GlideApp.with(context)
-            .load(res)
-            .placeholder(placeholder)
-            .error(placeholder)
-            .into(imageView)
-    }
-
-    @JvmStatic
-    fun loadImage(context: Context, res: Int, imageView: ImageView, placeholder: Drawable) {
-        GlideApp.with(context)
-            .load(res)
-            .placeholder(placeholder)
-            .error(placeholder)
-            .into(imageView)
+    fun loadImage(url: Any, imageView: ImageView, placeHolder: Any? = null, errorHolder: Any? = null) {
+        val glideRequest = GlideApp.with(imageView).load(url)
+        if (placeHolder is Int) {
+            glideRequest.placeholder(placeHolder)
+        } else if (placeHolder is Drawable) {
+            glideRequest.placeholder(placeHolder)
+        }
+        if (errorHolder is Int) {
+            glideRequest.error(errorHolder)
+        } else if (errorHolder is Drawable) {
+            glideRequest.error(errorHolder)
+        }
+        glideRequest.into(imageView)
     }
 
     @JvmStatic

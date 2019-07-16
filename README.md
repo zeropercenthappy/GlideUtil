@@ -27,7 +27,7 @@ dependencies {
 
 ```kotlin
 loadImage {
-    this.uri = url
+    this.url = url
     this.imageView = iv
     // options
 //    this.placeHolder = holder

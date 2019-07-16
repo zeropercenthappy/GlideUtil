@@ -5,7 +5,7 @@ import android.graphics.drawable.Drawable
 import android.widget.ImageView
 
 class GlideWrapper {
-    var uri: Any? = null
+    var url: Any? = null
     var imageView: ImageView? = null
     var placeHolder: Any = Unit
     var errorHolder: Any = Unit
@@ -22,7 +22,7 @@ fun loadImage(init: GlideWrapper.() -> Unit) {
             return
         }
         // glideRequest
-        val glideRequest = GlideApp.with(requireNotNull(imageView)).load(uri)
+        val glideRequest = GlideApp.with(requireNotNull(imageView)).load(url)
         // placeHolder
         if (placeHolder is Int) {
             glideRequest.placeholder(placeHolder as Int)
