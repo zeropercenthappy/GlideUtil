@@ -2,7 +2,7 @@
 
 Glide for Android
 
-## Step 1. Add it in your root build.gradle at the end of repositories
+### Step 1. Add it in your root build.gradle at the end of repositories
 
 ```
 allprojects {
@@ -13,48 +13,61 @@ allprojects {
 }
 ```
 
-## Step 2. Add the dependency
+### Step 2. Add the dependency
 
 ```
 dependencies {
-        implementation 'com.github.zeropercenthappy:GlideUtil:1.0.1'
+        implementation 'com.github.zeropercenthappy:GlideUtil:1.0.3'
 }
 ```
 
 ## Usage
 
-### kotlin
+### load image into a ImageView:
 
 ```kotlin
 loadImage {
-    this.url = url
-    this.imageView = iv
+    // required
+    context = ...
+    imageView = ...
+    url = ...
     // options
-//    this.placeHolder = holder
-//    this.errorHolder = holder
-//    this.circleCrop = true
+    requestOptions = ...
+    transitionOptions = ...
+    thumbnail = ...
+    errorBuilder = ...
+    requestListener = ...
 }
 ```
 
-### java
+or
 
-```java
-GlideUtils.loadImage();
+```kotlin
+loadImageWithBitmap {
+    // required
+    context = ...
+    imageView = ...
+    url = ...
+    // options
+    requestOptions = ...
+    transitionOptions = ...
+    thumbnail = ...
+    errorBuilder = ...
+    requestListener = ...
+}
 ```
 
-or (**not recommend**)
+### download image file:
 
-```java
-GlideDSLKt.loadImage(new Function1<GlideWrapper, Unit>() {
-    @Override
-    public Unit invoke(GlideWrapper glideWrapper) {
-        glideWrapper.setUri();
-        glideWrapper.setImageView();
-        glideWrapper.setPlaceHolder();
-        glideWrapper.setErrorHolder();
-        glideWrapper.setCircleCrop();
-        return null;
-    }
-});
+```kotlin
+// it's a suspend function, should be called only from a coroutine or another suspend function.
+val result = downloadImage {
+    // required
+    context = ...
+    url = ...
+    storageFile = ...
+    // options
+    requestListener = ...
+}
 ```
 
