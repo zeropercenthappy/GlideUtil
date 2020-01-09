@@ -1,8 +1,8 @@
 package com.zeropercenthappy.glidesample
 
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.bumptech.glide.request.RequestOptions
 import com.zeropercenthappy.glideutil.downloadImage
 import com.zeropercenthappy.glideutil.loadImage
@@ -27,24 +27,21 @@ class MainActivity : AppCompatActivity() {
     private fun load() {
         // options
         val options = RequestOptions().apply {
-            placeholder(R.mipmap.ic_launcher)
-            error(R.mipmap.ic_launcher_round)
+            placeholder(ColorDrawable(resources.getColor(android.R.color.holo_green_dark)))
+            error(ColorDrawable(resources.getColor(android.R.color.holo_red_dark)))
             centerInside()
         }
         // load
         loadImage {
-            context = this@MainActivity
             imageView = iv
             url = imageUrl
             requestOptions = options
-            transitionOptions = DrawableTransitionOptions.withCrossFade(1500)
         }
     }
 
     private fun download() = mainScope.launch {
         val file = CacheUtils.createFormatedCacheFile(this@MainActivity, "gif") ?: return@launch
         val downloadResult = downloadImage {
-            context = this@MainActivity
             url = imageUrl
             storageFile = file
         }

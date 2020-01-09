@@ -17,7 +17,7 @@ allprojects {
 
 ```
 dependencies {
-        implementation 'com.github.zeropercenthappy:GlideUtil:1.0.3'
+        implementation 'com.github.zeropercenthappy:GlideUtil:1.0.4'
 }
 ```
 
@@ -28,7 +28,6 @@ dependencies {
 ```kotlin
 loadImage {
     // required
-    context = ...
     imageView = ...
     url = ...
     // options
@@ -45,7 +44,6 @@ or
 ```kotlin
 loadImageWithBitmap {
     // required
-    context = ...
     imageView = ...
     url = ...
     // options
@@ -61,9 +59,8 @@ loadImageWithBitmap {
 
 ```kotlin
 // it's a suspend function, should be called only from a coroutine or another suspend function.
-val result = downloadImage {
+val result = context.downloadImage {
     // required
-    context = ...
     url = ...
     storageFile = ...
     // options
