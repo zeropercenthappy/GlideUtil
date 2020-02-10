@@ -16,8 +16,6 @@ import kotlin.coroutines.resume
  *
  * required params:
  *
- * - context
- *
  * - imageView
  *
  * - url
@@ -72,8 +70,6 @@ fun loadImage(init: GlideWrapper<Drawable>.() -> Unit) {
  * load image into ImageView
  *
  * required params:
- *
- * - context
  *
  * - imageView
  *

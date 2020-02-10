@@ -37,7 +37,7 @@ dependencies {
     api "com.github.bumptech.glide:annotations:$glide_version"
     kapt "com.github.bumptech.glide:compiler:$glide_version"
 
-    implementation "com.github.zeropercenthappy:ZPHAndroidUtils:1.2.4"
+    implementation "com.github.zeropercenthappy:ZPHAndroidUtils:1.2.7"
 }
 
 task sourcesJar(type: Jar) {
