@@ -14,6 +14,7 @@ import kotlinx.coroutines.launch
 class MainActivity : AppCompatActivity() {
 
     private val mainScope = MainScope()
+
     //    private val imageUrl = "https://imgs.aixifan.com/2fJC0sJcLK-BZRZfa-Y3iqEz-Q7jmEv-6Rrmmq.jpg"
     private val imageUrl = "https://imgs.aixifan.com/AcFccYdFRE-ZbAB7n-n2iymm-aEBFbu-mqIRni.gif"
 
@@ -40,7 +41,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun download() = mainScope.launch {
-        val file = CacheUtils.createFormatedCacheFile(this@MainActivity, "gif") ?: return@launch
+        val file = CacheUtils.createFormatCacheFile(this@MainActivity, "gif", true) ?: return@launch
         val downloadResult = downloadImage {
             url = imageUrl
             storageFile = file
