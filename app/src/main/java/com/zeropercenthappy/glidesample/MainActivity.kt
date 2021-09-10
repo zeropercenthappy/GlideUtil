@@ -2,7 +2,7 @@ package com.zeropercenthappy.glidesample
 
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.request.RequestOptions
 import com.zeropercenthappy.glideutil.downloadImage
 import com.zeropercenthappy.glideutil.loadImage

@@ -4,7 +4,7 @@ Glide for Android
 
 ### Step 1. Add it in your root build.gradle at the end of repositories
 
-```
+```groovy
 allprojects {
 	repositories {
 		...
@@ -15,9 +15,12 @@ allprojects {
 
 ### Step 2. Add the dependency
 
-```
+```groovy
 dependencies {
+        // For android compat version
         implementation 'com.github.zeropercenthappy:GlideUtil:1.0.4'
+        // For androidX version
+        implementation 'com.github.zeropercenthappy:GlideUtil:1.1.0'
 }
 ```
 
